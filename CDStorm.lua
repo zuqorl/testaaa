@@ -16,7 +16,7 @@ local tab2 = DrRayLibrary.newTab("Event", "ImageIdH")
 
 -- Add elements to the second tab
 
-tab2.newToggle("Farm VW points", "Will race until you stop it", false, function(state)
+tab2.newToggle("Farm VW points", "Will race until you stop it.You must take a car!", false, function(state)
     _G.racetest = (state and true or false)
               while _G.racetest do
                   wait()
