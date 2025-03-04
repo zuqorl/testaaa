@@ -10,8 +10,8 @@ local tab1 = DrRayLibrary.newTab("Home", "ImageIdHere")
 -- Add elements to the first tab
 tab1.newLabel("Welcome to CDStorm.")
 
-tab.newSlider("Do you like CDTStorm", "<3", 100, false, function(num)
-    print(num)
+tab.newDropdown("Do you like CDStorm?", "Select one of these options!", {"I love it!", "I like it", "I don't like it", "I hate it!", "I don't care"}, function(selectedOption)
+    print(selectedOption)
 end)
 
 -- Create the Second tab with an image ID
