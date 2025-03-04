@@ -111,7 +111,6 @@ tab2.newToggle("Farm VW points", "Will race until you stop it.You must take a ca
   end)
   
   tab2.newToggle("Farm Delivery", "Don't run it! It's still laggy", false, function(state)
-    function(state)
     getfenv().deliver = state
     resetcharactervalue1=0
     devpart2 = 1
