@@ -111,7 +111,7 @@ tab2.newToggle("Farm VW points", "Will race until you stop it.You must take a ca
   end
   end)
   
-  tab2.newToggle("Farm Delivery", "Will deliver until you stop it.You must sell cars before! A bot will soon be implant", false, function(state)
+  tab2.newToggle("Farm Delivery", "Don't run it! It's still laggy", false, function(state)
     getfenv().deliver2 = (state and true or false)
     local table = tostring(getfenv().stars.." "..getfenv().smaller.." "..getfenv().bigger)
     print(table)
@@ -333,3 +333,28 @@ tab3.newToggle("Farm Money", "Will drive until you stop it.You must take a car!(
   until game.Players.LocalPlayer:DistanceFromCharacter(Vector3.new(pos.X,pos.Y,pos.Z)) < 200 or getfenv().test == false
   end
   end)
+
+  tab3.newToggle("Auto Upgrade", "Will drive until you stop it.You must take a car!(Bêta version)", false, function(state)
+    getfenv().buyer = (state and true or false )
+while getfenv().buyer do
+task.wait()
+-- purchase buttons
+local function plot()
+    for i,v in pairs(workspace.Tycoons:GetDescendants()) do
+    if v.Name == "Owner" and v.ClassName == "StringValue" and v.Value == game.Players.LocalPlayer.Name then
+    tycoon = v.Parent
+    end
+    end
+    return tycoon
+    end
+    -- purchase buttons
+    pcall(function()
+    for i,v in pairs(plot().Dealership.Purchases:GetChildren()) do 
+        if getfenv().buyer == true and v.TycoonButton.Button.Transparency == 0 then
+    game:GetService("ReplicatedStorage").Remotes.Build:FireServer("BuyItem", v.Name)
+    wait(0.3)
+    end 
+end   
+end)
+end
+end)
