@@ -110,6 +110,7 @@ tab2.newToggle("Farm VW points", "Will race until you stop it.You must take a ca
   end
   end
   end)
+  
   tab2.newToggle("Farm Delivery", "Will deliver until you stop it.You must sell cars before! A bot will soon be implant", false, function(state)
     getfenv().deliver = (state and true or false)
     resetcharactervalue1=0
@@ -169,7 +170,7 @@ end
     end
     elseif game.Players.LocalPlayer.Character.Humanoid.Sit == false and getfenv().spawned ~= true then
         game:GetService("ReplicatedStorage").Remotes.DealershipCustomerController.JobRemoteHandler:FireServer(_G.remotetable)
-        workspace.Gravity = 196
+        workspace.Gravity = 0
         getfenv().spawned = true
     wait(0.1)
     end
