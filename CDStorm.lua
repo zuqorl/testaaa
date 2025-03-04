@@ -10,9 +10,6 @@ local tab1 = DrRayLibrary.newTab("Home", "ImageIdHere")
 -- Add elements to the first tab
 tab1.newLabel("Welcome to CDStorm.")
 
-tab1.newSlider("Do you like CDStorm?", "Slide it!", 100, false, function(num)
-    print(num)
-end)
 -- Create the Second tab with an image ID
 local tab2 = DrRayLibrary.newTab("Event", "ImageIdH")
 
