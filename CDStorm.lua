@@ -5,7 +5,7 @@ local DrRayLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/
 local window = DrRayLibrary:Load("CDTStorm", "Default")
 
 -- Create the first tab with an image ID
-local tab1 = DrRayLibrary.newTab("Tab 1", "ImageIdHere")
+local tab1 = DrRayLibrary.newTab("Home", "ImageIdHere")
 
 -- Add elements to the first tab
 tab1.newLabel("Welcome to CDStorm.")
