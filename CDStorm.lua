@@ -15,6 +15,7 @@ tab1.newLabel("Welcome to CDStorm.")
 local tab2 = DrRayLibrary.newTab("Event", "ImageIdH")
 
 -- Add elements to the second tab
+tab2.newLabel("VolksWagen event.")
 
 tab2.newToggle("Farm VW points", "Will race until you stop it.You must take a car!", false, function(state)
     _G.racetest = (state and true or false)
@@ -50,3 +51,45 @@ tab2.newToggle("Farm VW points", "Will race until you stop it.You must take a ca
     game:GetService("ReplicatedStorage").Remotes.Services.VolkswagenEventServiceRemotes.ClaimFreePack:InvokeServer()
     end
      end)
+     
+  tab2.newLabel("Scavenger HUNT event.")
+
+  tab2.newToggle("Farm RACE", "Will race until you stop it.You must take a car!", false, function(state)
+    _G.racetest = (state and true or false)
+              while _G.racetest do
+                  wait()
+              if game:GetService("Players").LocalPlayer.PlayerGui.Menu.Race.Visible == false then
+                  local chr = game.Players.LocalPlayer.Character
+              local car = chr.Humanoid.SeatPart.Parent.Parent
+               car:PivotTo(CFrame.new(1049.2476806640625, 609.7359008789062, 2511.8427734375))
+              chr.Head.Anchored = true
+              wait(1)
+              chr.Head.Anchored = false
+              wait(1)
+  workspace.Races.RaceHandler.StartLobby:FireServer("Race")
+              task.wait(10)
+  workspace.Races.Race.Script.Vote:FireServer("5", "VoteRace")
+                   task.wait(15)
+  workspace.Races.Race.Script.Vote:FireServer("5", "VoteLapsOval")
+              repeat wait()
+              until game:GetService("Players").LocalPlayer.PlayerGui.Menu.Race.Visible == true or _G.racetest == false
+              elseif game:GetService("Players").LocalPlayer.PlayerGui.Menu.Race.Visible == true then
+              for i =1,50 do
+  workspace.Races.Race.Script.Checkpoint:FireServer(i)
+  end
+  end
+  end
+  end)
+
+    
+ -- Create the Second tab with an image ID
+local tab3 = DrRayLibrary.newTab("Farming", "ImageIdHe")
+
+-- Add elements to the second tab
+tab3.newToggle("Farm Money", "Will drive until you stop it.You must take a car!", false, function(toggleState)
+    if toggleState then
+        print("On")
+    else
+        print("Off")
+    end
+end)
