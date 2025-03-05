@@ -70,14 +70,21 @@ tab2.newToggle("Farm VW points", "Will race until you stop it.You must take a ca
     car:PivotTo(workspace:FindFirstChild("justapart").CFrame*CFrame.new(0,7,1000))
     local pos = workspace:FindFirstChild("justapart").CFrame*CFrame.new(0,7,-1000)
     repeat task.wait()
-      local speed =  getfenv().speed or 300
-      local accel = 300
-              car.PrimaryPart.Velocity = Vector3.new(car.PrimaryPart.Velocity.X,-300,car.PrimaryPart.Velocity.Z) 
-      car:PivotTo(CFrame.new(car.PrimaryPart.Position,Vector3.new(pos.X,car.PrimaryPart.Position.Y,pos.Z)))
-              car.PrimaryPart.Velocity = Vector3.new(car.PrimaryPart.Velocity.X,-300,car.PrimaryPart.Velocity.Z) 
-      car.PrimaryPart.AssemblyLinearVelocity = car.PrimaryPart.CFrame.LookVector*speed
-      car.PrimaryPart.Velocity = Vector3.new(car.PrimaryPart.Velocity.X,-300,car.PrimaryPart.Velocity.Z) 
-    until game.Players.LocalPlayer:DistanceFromCharacter(Vector3.new(pos.X,pos.Y,pos.Z)) < 200 or getfenv().test == false
+        repeat task.wait()
+            -- Supprimez ou commentez la ligne suivante si vous ne voulez pas de limite de vitesse
+            -- local speed = getfenv().speed or 300
+        
+            -- Vous pouvez définir une vélocité très élevée ou utiliser une valeur dynamique
+            local highSpeed = 1000  -- Par exemple, une vitesse très élevée
+        
+            car.PrimaryPart.Velocity = Vector3.new(car.PrimaryPart.Velocity.X, -300, car.PrimaryPart.Velocity.Z)
+            car:PivotTo(CFrame.new(car.PrimaryPart.Position, Vector3.new(pos.X, car.PrimaryPart.Position.Y, pos.Z)))
+            car.PrimaryPart.Velocity = Vector3.new(car.PrimaryPart.Velocity.X, -300, car.PrimaryPart.Velocity.Z)
+            
+            -- Appliquez une vélocité constante sans limite
+            car.PrimaryPart.AssemblyLinearVelocity = car.PrimaryPart.CFrame.LookVector * highSpeed
+            car.PrimaryPart.Velocity = Vector3.new(car.PrimaryPart.Velocity.X, -300, car.PrimaryPart.Velocity.Z)
+        until game.Players.LocalPlayer:DistanceFromCharacter(Vector3.new(pos.X, pos.Y, pos.Z)) < 200 or getfenv().test == false
     end
     end)
 
