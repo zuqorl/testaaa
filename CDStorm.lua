@@ -56,7 +56,6 @@ tab2.newToggle("Farm VW points", "Will race until you stop it.You must take a ca
   tab2.newToggle("Farm Miles", "Will farm miles. You must take a car!", false, function(state)
     getfenv().auto = (state and true or false)
     wait(1)
-    workspace.Gravity = getfenv().grav
     while getfenv().auto do
       task.wait()
     local chr = game.Players.LocalPlayer.Character
@@ -73,7 +72,6 @@ tab2.newToggle("Farm VW points", "Will race until you stop it.You must take a ca
     repeat task.wait()
       local speed =  getfenv().speed or 300
       local accel = 300
-      workspace.Gravity = 500
               car.PrimaryPart.Velocity = Vector3.new(car.PrimaryPart.Velocity.X,-100,car.PrimaryPart.Velocity.Z) 
       car:PivotTo(CFrame.new(car.PrimaryPart.Position,Vector3.new(pos.X,car.PrimaryPart.Position.Y,pos.Z)))
               car.PrimaryPart.Velocity = Vector3.new(car.PrimaryPart.Velocity.X,-100,car.PrimaryPart.Velocity.Z) 
